@@ -1182,3 +1182,25 @@ HG; // qualquer palavra eredoc
    $url = "https://henrique:123654@henriqueguerra.com.br:5000/blog?extra=abc#home";
    echo "<br/><br/>";
    print_r(parse_url($url));
+   echo "<br/>";
+   print_r(parse_url($url, PHP_URL_HOST));
+
+// rawurldecode e rawurlencode
+
+   $msg = "Henrique Guerra Araújo";
+   echo "<br/><br/>";
+   echo rawurlencode($msg);
+   echo "<br/>";
+   echo rawurldecode($msg);
+
+// urldecode e urlencode - molher prática
+
+   $msg = "Henrique Guerra Araújo";
+   echo "<br/><br/>";
+   echo urlencode($msg);
+   echo "<br/>";
+   echo urldecode($msg);
+
+// 
+
+   
