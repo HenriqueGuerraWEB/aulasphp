@@ -1201,6 +1201,154 @@ HG; // qualquer palavra eredoc
    echo "<br/>";
    echo urldecode($msg);
 
-// 
+/**
+ * ! Funções para ARRAY
+ * - Contando ARRAY com rang e count
+ * - array_keys e array_values
+ * - array_reverse
+ * - Adicionando e removendo valores em um Array
+ * - Verificando valores e chaves de um Array
+ * - array_count_values
+ * - array_unique
+ * - array_merge
+ * - array_combine
+ * - array_diff
+ * - array_filter
+ * - array_map
+ */
+
+   echo "<br/><br/>";
+   echo "<b>Funções para ARRAY</b><br/><br/>";
+
+   $linhas = ["Gool", "Latam", "Pobres"];
+
+   $intervalo = range(0, 100, 5);
+   $intervalo2 = range("b", "r", -1);
+
+   var_dump($intervalo2);
+   echo "<br/><br/>";
+   var_dump(count($intervalo));
+
+// array_keys e array_values
+   echo "<br/><br/>";
+   $frutas = ["estacao"=>"Maça", "doce"=>"Uva", "tropical"=>"Pitanga"];
+   var_dump($frutas);
+   echo "<br/><br/>";
+   var_dump(array_keys($frutas, "Uva"));
+   echo "<br/><br/>";
+   var_dump(array_values($frutas));
+
+// array_reverse
+
+   $navegadores = ["Chrome", "Edge", "Opera"];
+   echo "<br/><br/>";
+   var_dump(array_reverse($navegadores, true));
+
+// Adicionando e removendo valores em um Array
+
+   //final do array
+
+   $arrayAddRemove = ["Vermelho", "Preto", "Amarelo"];
+   echo "<br/><br/>";
+   var_dump($arrayAddRemove);
+   echo "<br/><br/>";
+   var_dump(array_push($arrayAddRemove, "Branco"));
+   echo "<br/><br/>";
+   var_dump(array_pop($arrayAddRemove));   
+
+
+   // começo do array
+
+   echo "<br/><br/>";
+   var_dump(array_unshift($arrayAddRemove, "Laranja"));
+
+
+// Verificando valores e chaves de um Array
+
+   $paises = ["Brasil" => 210, "Argentina" => 50, "Chile" => 650, "Colombia" => 98, "Equador" => 1898, "10", 200];
+   echo "<br/><br/>";
+   var_dump($paises);
+   echo "<br/><br/>";
+   var_dump(in_array("Brasil", $paises, true));
+   echo "<br/><br/>";
+   var_dump(array_search("Brasil", $paises, true));   
+   echo "<br/><br/>";
+   array_key_exists("Brasil", $paises);
+
+// array_count_values strings ou valores inteiros
+
+   $valores = [
+      "tropical" => "Maça",
+      "Banana",
+      "Banana",
+      "Abacaxi",
+      "Maça",
+      35,
+      10,
+      15,
+      10
+   ];
+   echo "<br/><br/>";
+   var_dump(array_count_values($valores));
+
+// array_unique
+   echo "<br/><br/>";
+   var_dump(array_unique($valores, SORT_LOCALE_STRING));
+
+// array_merge
+
+   $outroArray = ["Limão", "Cupuaçu", "tropical" => "Laranja"];
+   echo "<br/><br/>";
+   var_dump(array_merge($valores, $outroArray));
+
+// array_combine
+
+   $campos = ["nome", "email", "idade"];
+   $valores = ["Ambrosio", "amboriso@com.com", "76"];
+   echo "<br/><br/>";
+   var_dump(array_combine($campos, $valores));
+
+// array_diff
+
+   $brasil = ["Vermelho", "Azul", "Amarelo"];
+   $eua = ["Vermemelho", "Azul", "Branco"];
+   echo "<br/><br/>";
+   var_dump(array_diff($eua, $arrayAddRemove, $brasil));
+
+// array_filter
+
+   $dados = [
+      "um" => [
+         "modelo"=>"onix",
+         "ano"=>"2020",
+         "preco"=>50000,
+         "fabricante"=>"gm"
+      ],
+      "dois" => [
+         "modelo"=>"crusie",
+         "ano"=>"2021",
+         "preco"=>150000,
+         "fabricante"=>"gm"     
+      ],
+      "tres" => [
+         "modelo"=>"palio",
+         "ano"=>"1998",
+         "preco"=>7500,
+         "fabricante"=>"fiat"          
+      ]
+   ];
+   echo "<br/><br/>";
+   $filtrados = array_filter($dados, function($item, $indice) {
+      //var_dump($item["fabricante"] === "gm"); 
+      //var_dump("<br/>=====================================<br/>");
+      var_dump($indice);
+      return $item["ano"] <= 2020;
+   }, ARRAY_FILTER_USE_BOTH);
+
+   echo "<br/><br/>";
+   var_dump($filtrados);   
+
+
+// array_map
 
    
