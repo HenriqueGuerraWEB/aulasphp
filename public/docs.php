@@ -1442,4 +1442,8 @@ list($primeiraCarta) = $cartas;
 
 var_dump($primeiraCarta);
 
-// shuffle e array_rand   
+// shuffle e array_rand
+echo "<br/><br/>";
+var_dump(shuffle($cartas)); // embaralha o array
+echo "<br/><br/>";
+var_dump($cartas[array_rand($cartas)]);
